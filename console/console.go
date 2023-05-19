@@ -9,24 +9,24 @@ import (
 	"strings"
 )
 
-func GetStrInput() string {
+func getStrInput() string {
 	var input string
 	fmt.Scanln(&input)
 	return input
 }
 
-func GetIntInput() (int, error) {
+func getIntInput() (int, error) {
 	var input string
 	fmt.Scanln(&input)
 	return strconv.Atoi(input)
 }
 
-func GetDigitsInput() int {
+func validateDigitsInput() int {
 	var numDigits int
 	var err error
 
 	for {
-		numDigits, err = GetIntInput()
+		numDigits, err = getIntInput()
 		if err == nil && numDigits > 0 {
 			break
 		}
@@ -35,7 +35,7 @@ func GetDigitsInput() int {
 	return numDigits
 }
 
-func GenerateNumber(numberOfDigits int) (int, error) {
+func generateRandomNumber(numberOfDigits int) (int, error) {
 	maxLimit := int64(int(math.Pow10(numberOfDigits)) - 1)
 	lowLimit := int(math.Pow10(numberOfDigits - 1))
 
@@ -53,7 +53,7 @@ func GenerateNumber(numberOfDigits int) (int, error) {
 	return randomNumberInt, nil
 }
 
-func Train() {
+func train() {
 	var opStr string        // the operation selected by the user (add, sub, mul, div)
 	var firstNumDigits int  // number of digits of the first operand
 	var secondNumDigits int // number of digits of the second operand
@@ -72,7 +72,7 @@ func Train() {
 
 	fmt.Print("Please choose the mathematical operation to perform (add | sub | mul | div): ")
 	for {
-		opStr = GetStrInput()
+		opStr = getStrInput()
 		opStr = strings.ToLower(opStr)
 		if validOps[opStr] {
 			break
@@ -82,18 +82,18 @@ func Train() {
 	}
 
 	fmt.Print("Choose the number of digits of the first operand: ")
-	firstNumDigits = GetDigitsInput()
+	firstNumDigits = validateDigitsInput()
 
 	fmt.Print("Choose the number of digits of the second operand: ")
-	secondNumDigits = GetDigitsInput()
+	secondNumDigits = validateDigitsInput()
 
-	firstNum, ok := GenerateNumber(firstNumDigits)
+	firstNum, ok := generateRandomNumber(firstNumDigits)
 	if ok != nil {
 		fmt.Println("There was an error generating a number with the specified amount of digits.")
 		return
 	}
 
-	secondNum, ok := GenerateNumber(secondNumDigits)
+	secondNum, ok := generateRandomNumber(secondNumDigits)
 	if ok != nil {
 		fmt.Println("There was an error generating a number with the specified amount of digits.")
 		return
@@ -120,20 +120,20 @@ func Train() {
 
 	for {
 		fmt.Print("answer: ")
-		guess, err = GetIntInput()
+		guess, err = getIntInput()
 		for err != nil {
 			fmt.Println("Please make sure your answer is a whole number...")
 			fmt.Print("answer: ")
-			guess, err = GetIntInput()
+			guess, err = getIntInput()
 		}
 
 		if op == "/" {
 			fmt.Print("remainder: ")
-			remainderGuess, err := GetIntInput()
+			remainderGuess, err := getIntInput()
 			for err != nil {
 				fmt.Println("Please make sure your answer is a whole number...")
 				fmt.Print("remainder: ")
-				remainderGuess, err = GetIntInput()
+				remainderGuess, err = getIntInput()
 			}
 
 			if guess == answer && remainderGuess == remainder {
@@ -152,15 +152,17 @@ func Train() {
 
 }
 
-func Run() {
+func main() {
+	fmt.Println("----- 💪 Welcome to the Math GYM 💪 -----")
 	for {
-		Train()
-		fmt.Print("\nWould you like to Train more? (y | n) ")
-		repeat := GetStrInput()
+		train()
+		fmt.Print("\nWould you like to train more? (y | n) ")
+		repeat := getStrInput()
 		if repeat == "y" {
 			continue
 		} else if repeat == "n" {
 			fmt.Println("\n----- ❤️ Have a good day ❤️ -----")
+			fmt.Scanln()
 			break
 		} else {
 			fmt.Print("Please provide a valid answer (y | n) ")
