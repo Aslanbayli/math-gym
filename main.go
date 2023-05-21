@@ -6,7 +6,6 @@ import (
 	"math"
 	"math/big"
 	"strconv"
-	"strings"
 )
 
 func getStrInput() string {
@@ -54,31 +53,29 @@ func generateRandomNumber(numberOfDigits int) (int, error) {
 }
 
 func train() {
-	var opStr string        // the operation selected by the user (add, sub, mul, div)
+	var operation string    // the operation selected by the user (+ | - | * | /)
 	var firstNumDigits int  // number of digits of the first operand
 	var secondNumDigits int // number of digits of the second operand
 	var err error
-	var op string     // operation in symbol form (+, -, *, /)
 	var answer int    // correct answer of the operation for checking
 	var remainder int // for division operations with remainders
 	var guess int     // user's claculation
 
 	validOps := map[string]bool{
-		"add": true,
-		"sub": true,
-		"mul": true,
-		"div": true,
+		"+": true,
+		"-": true,
+		"*": true,
+		"/": true,
 	}
 
-	fmt.Print("Please choose the mathematical operation to perform (add | sub | mul | div): ")
+	fmt.Print("Please choose the mathematical operation to perform (+ | - | * | /): ")
 	for {
-		opStr = getStrInput()
-		opStr = strings.ToLower(opStr)
-		if validOps[opStr] {
+		operation = getStrInput()
+		if validOps[operation] {
 			break
 		}
 
-		fmt.Print("Please enter a valid choice... (add | sub | mul | div): ")
+		fmt.Print("Please enter a valid choice... (+ | - | * | /): ")
 	}
 
 	fmt.Print("Choose the number of digits of the first operand: ")
@@ -99,24 +96,20 @@ func train() {
 		return
 	}
 
-	switch opStr {
-	case "add":
-		op = "+"
+	switch operation {
+	case "+":
 		answer = firstNum + secondNum
-	case "sub":
-		op = "-"
+	case "-":
 		answer = firstNum - secondNum
-	case "mul":
-		op = "*"
+	case "*":
 		answer = firstNum * secondNum
-	case "div":
-		op = "/"
+	case "/":
 		answer = firstNum / secondNum
 		remainder = firstNum - (answer * secondNum)
 
 	}
 
-	fmt.Printf("Calculate %d %s %d\n", firstNum, op, secondNum)
+	fmt.Printf("Calculate %d %s %d\n", firstNum, operation, secondNum)
 
 	for {
 		fmt.Print("answer: ")
@@ -127,7 +120,7 @@ func train() {
 			guess, err = getIntInput()
 		}
 
-		if op == "/" {
+		if operation == "/" {
 			fmt.Print("remainder: ")
 			remainderGuess, err := getIntInput()
 			for err != nil {
