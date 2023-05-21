@@ -155,6 +155,7 @@ func main() {
 			continue
 		} else if repeat == "n" {
 			fmt.Println("\n----- ❤️ Have a good day ❤️ -----")
+			fmt.Println("\nPress any key to exit")
 			fmt.Scanln()
 			break
 		} else {
