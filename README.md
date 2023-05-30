@@ -35,15 +35,15 @@ Once you run the code it will open a prompt in the terminal asking you to choose
 
 Subsequently the program will open two more prompts to input the digits of two numbers for generting an algebraic expression. Keep in mind that these are the digit sizes not numbers themselves, the numbers are generated randomly each time. 
 
-img
+![image](https://github.com/Aslanbayli/math-gym/assets/48028559/69380dd8-8a61-42fe-83e9-3471db9786b3)
 
-If you answer correctly you can keep using the app.
+If your answer is wrong, the program will keep asking for a correct answer
 
-img
+![image](https://github.com/Aslanbayli/math-gym/assets/48028559/5aa4bfd7-206d-40f2-8587-82d869daee24)
 
-Otherwise, you will have to give a correct answer until you can proceed further.
+Otherwise, you will be asked if you would like to solve another problem
 
-img
+![image](https://github.com/Aslanbayli/math-gym/assets/48028559/ef01664c-6890-4b74-af89-5c9a460d7284)
 
 ## Future plans
 
