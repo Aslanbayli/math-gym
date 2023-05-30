@@ -45,6 +45,10 @@ Otherwise, you will be asked if you would like to solve another problem
 
 ![image](https://github.com/Aslanbayli/math-gym/assets/48028559/ef01664c-6890-4b74-af89-5c9a460d7284)
 
+If your answer is no, an exit screen with will be displayed
+
+![image](https://github.com/Aslanbayli/math-gym/assets/48028559/7f3c9a4e-e5ee-4993-84b6-cd1712c25dc3)
+
 ## Future plans
 
 In the future, I plan on adding a timer functionality so that users can measure their imporvement based on how much faster they were able to compute an expressions.
