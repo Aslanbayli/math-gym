@@ -31,7 +31,7 @@ make build-unix
 
 Once you run the code it will open a prompt in the terminal asking you to choose a mathematical expressions
 
-img
+![image](https://github.com/Aslanbayli/math-gym/assets/48028559/b95660a8-0d51-421f-a653-2adb6231a3a6)
 
 Subsequently the program will open two more prompts to input the digits of two numbers for generting an algebraic expression. Keep in mind that these are the digit sizes not numbers themselves, the numbers are generated randomly each time. 
 
