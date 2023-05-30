@@ -142,7 +142,6 @@ func train() {
 
 		fmt.Println("Wrong answer...")
 	}
-
 }
 
 func main() {
